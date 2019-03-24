@@ -45,20 +45,20 @@ This is the hw04 sample. Please follow the steps below.
 --------------------
 
 作業要求利用User button來控制藍燈閃爍的開始，首先必須先找出按鈕的連接阜，由UM1472 User manual Discovery kit with STM32F407VG MCU這份文件的第16頁
-i[image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/PA0.png)
+![image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/PA0.png)
 可以看出User button連接PA0，且PortA也由AHB1控制，因此可藉由RM0090 Reference manual STM32F407的7.3.10找到致能PortA的函式
-i[image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/7_3_10.png)
+![image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/7_3_10.png)
 接下來要把PA0設定為輸入訊號，由8.3的table 35可查出要設為輸入需要設定MODER及PUPDR
-i[image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/t35.png)
+![image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/t35.png)
 MODER需設為00、PUPDR需設為10（pull-down）
 以上步驟程式碼如下圖：
-i[image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/step1.png)
+![image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/step1.png)
 
 接下來要設定READ_BIT
 在8.4.5 GPIO port input data register (GPIOx_IDR) (x = A..I/J/K)可找到讀取PA0數值的register，如圖：
-i[image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/8_4_5.png)
+![image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/8_4_5.png)
 因此偵測按鈕被按下的程式碼可寫成：
-i[image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/detect.png)
+![image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/detect.png)
 最後將上面函式與藍燈閃爍函式合併可得：
-i[image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/all.png)
+![image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/all.png)
 
