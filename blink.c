@@ -54,6 +54,36 @@ void blink(unsigned int led)
 }
 
 /**
+	detect User Button
+*/
+
+void button(void)
+{
+	SET_BIT(RCC_BASE + RCC_AHB1ENR_OFFSET, GPIO_EN_BIT(GPIO_PORTA));
+	
+	//MODER led pin = 00 => Input
+	CLEAR_BIT(GPIO_BASE(GPIO_PORTA) + GPIOx_MODER_OFFSET, MODERy_1_BIT(0));
+	CLEAR_BIT(GPIO_BASE(GPIO_PORTA) + GPIOx_MODER_OFFSET, MODERy_0_BIT(0));
+	
+	//PUPDR led pin = 10 => input PULL DOWN
+	SET_BIT(GPIO_BASE(GPIO_PORTA) + GPIOx_PUPDR_OFFSET, PUPDRy_1_BIT(0));
+	CLEAR_BIT(GPIO_BASE(GPIO_PORTA) + GPIOx_PUPDR_OFFSET, PUPDRy_0_BIT(0));
+}
+
+void detect(void)
+{
+	button();
+	unsigned int d,i;
+	d=0;
+	while(d<1)
+	{
+		d=READ_BIT(GPIO_BASE(GPIO_PORTA) + GPIOx_IDR_OFFEST, IDR_BIT(0));
+		for(i=0;i<100;i++)
+			;
+	}
+}
+
+/**
  * 
  * blink LED x count
  * 

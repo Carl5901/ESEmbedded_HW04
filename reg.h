@@ -10,7 +10,8 @@
 #define SET_BIT(addr, bit) (REG(addr) |= UINT32_1 << (bit))
 #define CLEAR_BIT(addr, bit) (REG(addr) &= ~(UINT32_1 << (bit)))
 
-// #define READ_BIT(addr, bit) ??????
+//USER BUTTOM
+#define READ_BIT(addr, bit) (REG(addr) &= 0x00000001)
 
 //RCC
 #define RCC_BASE 0x40023800
@@ -44,5 +45,8 @@
 #define GPIOx_BSRR_OFFSET 0x18
 #define BRy_BIT(y) ((y) + 16)
 #define BSy_BIT(y) (y)
+
+#define GPIOx_IDR_OFFEST 0x10
+#define IDR_BIT(y) (y)
 
 #endif
