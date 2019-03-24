@@ -57,8 +57,11 @@ MODER需設為00、PUPDR需設為10（pull-down）
 接下來要設定READ_BIT
 在8.4.5 GPIO port input data register (GPIOx_IDR) (x = A..I/J/K)可找到讀取PA0數值的register，如圖：
 ![image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/8_4_5.png)
+READ_BIT寫成：
+![image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/read_bit.png)
 因此偵測按鈕被按下的程式碼可寫成：
 ![image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/detect.png)
 最後將上面函式與藍燈閃爍函式合併可得：
+
 ![image](https://github.com/Carl5901/ESEmbedded_HW04/blob/master/image/all.png)
 
