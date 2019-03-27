@@ -39,9 +39,6 @@ This is the hw04 sample. Please follow the steps below.
 [Lecture 04]: http://www.nc.es.ncku.edu.tw/course/embedded/04/
 
 --------------------
-
-- [x] **If you volunteer to give the presentation (demo) next week, check this.**
-
 --------------------
 
 作業要求利用User button來控制藍燈閃爍的開始，首先必須先找出按鈕的連接阜，由UM1472 User manual Discovery kit with STM32F407VG MCU這份文件的第16頁
